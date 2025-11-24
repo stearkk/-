@@ -127,7 +127,6 @@
       }
     }
 
-    // Функции для управления конкретными временами
     function addExactTime() {
       const timesPer = parseInt(document.getElementById('timesPer').value) || 0;
       const container = document.getElementById('exactTimesContainer');
@@ -155,7 +154,7 @@
         <button type="button" onclick="removeExactTime(this)">×</button>
       `;
       container.appendChild(newEntry);
-      updateVisibility2(); // Обновляем видимость для нового элемента
+      updateVisibility2(); 
     }
 
     function removeExactTime(button) {
@@ -165,16 +164,15 @@
       }
     }
 
-    // Добавляем проверку при изменении timesPer
+    
     document.getElementById('timesPer').addEventListener('input', function() {
       const timesPer = parseInt(this.value) || 0;
       const container = document.getElementById('exactTimesContainer');
       const currentEntries = container.querySelectorAll('.exact-time-entry');
       
-      // Удаляем лишние entries если timesPer уменьшили
       if (currentEntries.length > timesPer) {
         for (let i = currentEntries.length - 1; i >= timesPer; i--) {
-          if (i > 0) { // Оставляем хотя бы один entry
+          if (i > 0) { 
             currentEntries[i].remove();
           }
         }
